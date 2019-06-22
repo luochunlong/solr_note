@@ -1,0 +1,491 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5. Solr应用发布至Tomcat · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.solr home目录介绍.html" />
+    
+    
+    <link rel="prev" href="4.2Solr应用发布.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.Solr概述.html">
+            
+                <a href="1.Solr概述.html">
+            
+                    
+                    1. Solr概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.Solr与Lucene的区别.html">
+            
+                <a href="2.Solr与Lucene的区别.html">
+            
+                    
+                    2. Solr与Lucene的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.Solr的工作方式.html">
+            
+                <a href="3.Solr的工作方式.html">
+            
+                    
+                    3. Solr的工作方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.Solr服务下载安装运行.html">
+            
+                <a href="4.Solr服务下载安装运行.html">
+            
+                    
+                    4. Solr服务下载安装运行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="4.1Solr下载.html">
+            
+                <a href="4.1Solr下载.html">
+            
+                    
+                    4.1 Solr下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="4.2Solr应用发布.html">
+            
+                <a href="4.2Solr应用发布.html">
+            
+                    
+                    4.2 Solr应用发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="5.Solr应用发布至Tomcat.html">
+            
+                <a href="5.Solr应用发布至Tomcat.html">
+            
+                    
+                    5. Solr应用发布至Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.solr home目录介绍.html">
+            
+                <a href="6.solr home目录介绍.html">
+            
+                    
+                    6. solr home目录介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="7.Solr核心配置文件分析.html">
+            
+                <a href="7.Solr核心配置文件分析.html">
+            
+                    
+                    7. Solr核心配置文件分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="8.配置IK中文分词器.html">
+            
+                <a href="8.配置IK中文分词器.html">
+            
+                    
+                    8. 配置IK中文分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="9.Solr后台管理界面介绍.html">
+            
+                <a href="9.Solr后台管理界面介绍.html">
+            
+                    
+                    9. Solr后台管理界面介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="10.Solrj概述以及使用.html">
+            
+                <a href="10.Solrj概述以及使用.html">
+            
+                    
+                    10. Solrj概述以及使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="10.1通过Solrj实现索引添加与更新.html">
+            
+                <a href="10.1通过Solrj实现索引添加与更新.html">
+            
+                    
+                    10.1 通过Solrj实现索引添加与更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="10.2通过Solrj实现索引删除.html">
+            
+                <a href="10.2通过Solrj实现索引删除.html">
+            
+                    
+                    10.2 通过Solrj实现索引删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="10.3通过Solrj实现简单查询.html">
+            
+                <a href="10.3通过Solrj实现简单查询.html">
+            
+                    
+                    10.3 通过Solrj实现简单查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="10.4通过Solrj实现复杂查询.html">
+            
+                <a href="10.4通过Solrj实现复杂查询.html">
+            
+                    
+                    10.4 通过Solrj实现复杂查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >5. Solr应用发布至Tomcat</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5C06;solr&#x5E94;&#x7528;&#x53D1;&#x5E03;&#x81F3;tomcat&#x670D;&#x52A1;&#x5668;&#x4E2D;">&#x5C06;Solr&#x5E94;&#x7528;&#x53D1;&#x5E03;&#x81F3;Tomcat&#x670D;&#x52A1;&#x5668;&#x4E2D;</h1>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5C06;Solr&#x53D1;&#x5E03;&#x81F3;tomcat&#x670D;&#x52A1;&#x5668;&#x4E2D;&#xFF0C;&#x53EF;&#x6309;&#x7167;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p> 1.&#x5C06;solr-7.3.0/server/solr-webapp/&#x4E0B;&#x7684;webapp&#x590D;&#x5236;&#x5230;apache-tomcat-8.5.23/webapps/&#x4E0B;&#x5E76;&#x4E14;&#x91CD;&#x547D;&#x540D;
+&#xFF08;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x547D;&#x540D;&#xFF09;&#xFF0C;&#x8FD9;&#x91CC;&#x547D;&#x540D;&#x4E3A;solr</p>
+<p>2.&#x590D;&#x5236;solr-7.3.0/server/lib/ext&#x4E0B;&#x7684;&#x6240;&#x6709;jar&#xFF0C;&#x5230;apache-tomcat-8.5.23/webapps/solr/WEB-INF/lib/&#x4E0B;
+(&#x6CA1;&#x9519;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x90A3;&#x4E2A;&#x91CD;&#x547D;&#x540D;solr&#x4E0B;&#x7684;WEB-INF/lib)</p>
+<p>3.&#x590D;&#x5236;solr-7.3.0/server/lib/&#x4E0B;metrics&#x76F8;&#x5173;&#x7684;jar&#x5230;  apache-tomcat-8.5.23/webapps/solr/WEB-INF/lib/&#x4E0B;</p>
+<p>4.&#x590D;&#x5236;solr-7.3.0/server/resources&#x4E0B;&#x7684;log4j.properties&#x6587;&#x4EF6;&#xFF0C;&#x5230;apache-tomcat-8.5.23/webapps/solr/WEB-INF/&#x4E0B;&#x7684;classes&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF08;classes&#x6587;&#x4EF6;&#x5939;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#xFF0C;&#x8FD9;&#x662F;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF09;</p>
+<p>5.&#x521B;&#x5EFA;solr_home&#xFF1A;&#x590D;&#x5236;solr-7.3.0/server/&#x4E0B;&#x7684;solr&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5230;&#x4EFB;&#x610F;&#x76EE;&#x5F55;&#x5904;&#xFF08;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x547D;&#x540D;&#xFF0C;&#x8FD9;&#x91CC;&#x91CD;&#x547D;&#x540D;&#x4E3A;solr_home</p>
+<p>6.&#x914D;&#x7F6E;solr_home&#x8DEF;&#x5F84;&#xFF1A;&#x4FEE;&#x6539;apache-tomcat-8.5.23/webapps/solr/WEB-INF/&#x4E0B;&#x7684;web.xml&#x6587;&#x4EF6;</p>
+<pre><code>&lt;!-- &#x65B9;&#x6CD5;1&#xFF1A;&#x9ED8;&#x8BA4;&#x4EE3;&#x7801;&#x4E3A;&#x6CE8;&#x91CA;&#x72B6;&#x6001;&#x3002;&#x653E;&#x5F00;&#x4E4B;&#x540E;&#xFF0C;&#x66FF;&#x6362;&lt;env-entry-value&gt;&lt;/env-entry-value&gt;&#x4E2D;&#x95F4;&#x7684;&#x503C;&#x4E3A;&#x81EA;&#x5DF1;&#x7684;solr_home&#x8DEF;&#x5F84;&#x5373;&#x53EF; --&gt;
+&lt;env-entry&gt;
+   &lt;env-entry-name&gt;solr/home&lt;/env-entry-name&gt;
+   &lt;env-entry-value&gt;F:/solr_home&lt;/env-entry-value&gt;
+   &lt;env-entry-type&gt;java.lang.String&lt;/env-entry-type&gt;
+&lt;/env-entry&gt;
+</code></pre><p>7.&#x53D6;&#x6D88;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x6CE8;&#x91CA;web.xml&#x4E2D;&#x7684;&#x6700;&#x540E;&#x51E0;&#x884C;&#x4EE3;&#x7801;&#x3002;&#x5426;&#x5219;&#x9879;&#x76EE;&#x4F1A;&#x62A5;403</p>
+<pre><code>&lt;!--
+   &lt;security-constraint&gt;
+        &lt;web-resource-collection&gt;
+          &lt;web-resource-name&gt;Disable TRACE&lt;/web-resource-name&gt;
+          &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+          &lt;http-method&gt;TRACE&lt;/http-method&gt;
+        &lt;/web-resource-collection&gt;
+        &lt;auth-constraint/&gt;
+  &lt;/security-constraint&gt;
+
+   &lt;security-constraint&gt;
+        &lt;web-resource-collection&gt;
+          &lt;web-resource-name&gt;Enable everything but TRACE&lt;/web-resource-name&gt;
+          &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+          &lt;http-method-omission&gt;TRACE&lt;/http-method-omission&gt;
+        &lt;/web-resource-collection&gt;
+   &lt;/security-constraint&gt;
+
+  --&gt;
+</code></pre><p>8.&#x521D;&#x59CB;&#x5316;solr_home&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5728;solr_home&#x6587;&#x4EF6;&#x4E0B;&#x5EFA;&#x4E00;&#x4E2A;core1&#xFF08;&#x540D;&#x5B57;&#x968F;&#x610F;&#x53D6;&#xFF09;&#xFF0C;&#x590D;&#x5236;solr_home/configsets/_default/&#x4E0B;&#x7684;conf&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5230;&#x65B0;&#x5EFA;&#x7684;core1&#x4E0B;&#xFF0C;&#x5728;core1&#x4E0B;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;data&#xFF08;&#x7A7A;&#x6587;&#x4EF6;&#x52A0;&#x5373;&#x53EF;&#xFF09;&#x548C;core.properties&#x6587;&#x4EF6;(&#x5185;&#x5BB9;&#x53EA;&#x914D;&#x7F6E;name=core1&#x5373;&#x53EF;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;name&#x7684;&#x503C;&#x4E5F;&#x5C31;&#x662F;&#x518D;&#x9875;&#x9762;&#x8981;&#x663E;&#x793A;&#x7684;solr_home&#x540D;&#x79F0;)</p>
+<p>9.&#x8BBF;&#x95EE;<a href="http://localhost:8080/solr/index.html" target="_blank">http://localhost:8080/solr/index.html</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.2Solr应用发布.html" class="navigation navigation-prev " aria-label="Previous page: 4.2 Solr应用发布">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.solr home目录介绍.html" class="navigation navigation-next " aria-label="Next page: 6. solr home目录介绍">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5. Solr应用发布至Tomcat","level":"1.6","depth":1,"next":{"title":"6. solr home目录介绍","level":"1.7","depth":1,"path":"6.solr home目录介绍.md","ref":"6.solr home目录介绍.md","articles":[]},"previous":{"title":"4.2 Solr应用发布","level":"1.5.2","depth":2,"path":"4.2Solr应用发布.md","ref":"4.2Solr应用发布.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"5.Solr应用发布至Tomcat.md","mtime":"2019-06-22T02:30:05.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-22T03:25:18.320Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

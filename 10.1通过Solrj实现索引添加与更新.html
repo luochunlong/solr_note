@@ -1,0 +1,505 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>10.1 通过Solrj实现索引添加与更新 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="10.2通过Solrj实现索引删除.html" />
+    
+    
+    <link rel="prev" href="10.Solrj概述以及使用.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.Solr概述.html">
+            
+                <a href="1.Solr概述.html">
+            
+                    
+                    1. Solr概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.Solr与Lucene的区别.html">
+            
+                <a href="2.Solr与Lucene的区别.html">
+            
+                    
+                    2. Solr与Lucene的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.Solr的工作方式.html">
+            
+                <a href="3.Solr的工作方式.html">
+            
+                    
+                    3. Solr的工作方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.Solr服务下载安装运行.html">
+            
+                <a href="4.Solr服务下载安装运行.html">
+            
+                    
+                    4. Solr服务下载安装运行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="4.1Solr下载.html">
+            
+                <a href="4.1Solr下载.html">
+            
+                    
+                    4.1 Solr下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="4.2Solr应用发布.html">
+            
+                <a href="4.2Solr应用发布.html">
+            
+                    
+                    4.2 Solr应用发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5.Solr应用发布至Tomcat.html">
+            
+                <a href="5.Solr应用发布至Tomcat.html">
+            
+                    
+                    5. Solr应用发布至Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.solr home目录介绍.html">
+            
+                <a href="6.solr home目录介绍.html">
+            
+                    
+                    6. solr home目录介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="7.Solr核心配置文件分析.html">
+            
+                <a href="7.Solr核心配置文件分析.html">
+            
+                    
+                    7. Solr核心配置文件分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="8.配置IK中文分词器.html">
+            
+                <a href="8.配置IK中文分词器.html">
+            
+                    
+                    8. 配置IK中文分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="9.Solr后台管理界面介绍.html">
+            
+                <a href="9.Solr后台管理界面介绍.html">
+            
+                    
+                    9. Solr后台管理界面介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="10.Solrj概述以及使用.html">
+            
+                <a href="10.Solrj概述以及使用.html">
+            
+                    
+                    10. Solrj概述以及使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.11.1" data-path="10.1通过Solrj实现索引添加与更新.html">
+            
+                <a href="10.1通过Solrj实现索引添加与更新.html">
+            
+                    
+                    10.1 通过Solrj实现索引添加与更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="10.2通过Solrj实现索引删除.html">
+            
+                <a href="10.2通过Solrj实现索引删除.html">
+            
+                    
+                    10.2 通过Solrj实现索引删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="10.3通过Solrj实现简单查询.html">
+            
+                <a href="10.3通过Solrj实现简单查询.html">
+            
+                    
+                    10.3 通过Solrj实现简单查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="10.4通过Solrj实现复杂查询.html">
+            
+                <a href="10.4通过Solrj实现复杂查询.html">
+            
+                    
+                    10.4 通过Solrj实现复杂查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >10.1 通过Solrj实现索引添加与更新</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x901A;&#x8FC7;solrj&#x5B9E;&#x73B0;&#x7D22;&#x5F15;&#x7684;&#x6DFB;&#x52A0;&#x4E0E;&#x66F4;&#x65B0;">&#x901A;&#x8FC7;Solrj&#x5B9E;&#x73B0;&#x7D22;&#x5F15;&#x7684;&#x6DFB;&#x52A0;&#x4E0E;&#x66F4;&#x65B0;</h1>
+<ul>
+<li><p>&#x5BFC;&#x5165;Solrj&#x76F8;&#x5173;jar&#x5305;&#xFF0C;&#x5982;&#x4E0B;x&#x4EE3;&#x8868;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;Solr&#x6240;&#x4F7F;&#x7528;&#x7684;jar&#x5305;&#x7248;&#x672C;&#x4E0D;&#x4E00;&#x81F4;</p>
+<ul>
+<li><p>&#x627E;&#x5230;solr&#x89E3;&#x538B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;dist&#x76EE;&#x5F55;,&#x5BFC;&#x5165;solr-solrj-x.x.x.jar</p>
+<p><img src="images/solrj_jar3.png" alt=""></p>
+</li>
+<li><p>&#x627E;&#x5230;solr&#x89E3;&#x538B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;dist-&gt;solrj-lib&#x76EE;&#x5F55;&#xFF0C;&#x5BFC;&#x5165;&#x5982;&#x4E0B;jar&#x6587;&#x4EF6;</p>
+<p><img src="images/solrj_jar2.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>&#x81EA;&#x5B9A;&#x4E49;solr&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5728;managed-schema&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;filed&#x5B57;&#x6BB5;</p>
+<p><img src="images/&#x6DFB;&#x52A0;&#x7D22;&#x5F15;&#x524D;field&#x914D;&#x7F6E;.png" alt=""></p>
+</li>
+<li><p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<p>```
+import java.util.UUID;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrInputDocument;</p>
+<p>public class IndexManager {</p>
+</li>
+</ul>
+<pre><code>  public static void main(String[] args) {
+      // TODO Auto-generated method stub
+      try {
+          //&#x521B;&#x5EFA;Solrj&#x5BA2;&#x6237;&#x7AEF;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4E0E;Solr&#x5E94;&#x7528;&#x4EA4;&#x4E92;
+          HttpSolrClient client = new HttpSolrClient.Builder(&quot;http://127.0.0.1:8080/solr/core1&quot;).withConnectionTimeout(10000).build();
+
+          //&#x521B;&#x5EFA;&#x6587;&#x6863;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x5B9E;&#x4F8B;&#x4EE3;&#x8868;&#x4E00;&#x6761;&#x8BB0;&#x5F55;,&#x7C7B;&#x4F3C;&#x4E8E;Lucene&#x4E2D;&#x7684;Document
+          SolrInputDocument doc = new SolrInputDocument();
+          //&#x901A;&#x8FC7;SolrInputDocument&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x503C;&#x7684;&#x4FE1;&#x606F;
+          //&#x901A;&#x8FC7;UUID&#x751F;&#x6210;id&#x503C;
+          String id = UUID.randomUUID().toString();
+          //id&#x503C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;
+          doc.addField(&quot;id&quot;, id);
+          doc.addField(&quot;title&quot;, &quot;&#x82F9;&#x679C;8plus&quot;);
+          doc.addField(&quot;price&quot;, 5000f);
+          doc.addField(&quot;locality&quot;, &quot;&#x6DF1;&#x5733;&#x5BCC;&#x58EB;&#x5EB7;&quot;);
+          //&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x81F3;&#x7D22;&#x5F15;&#x5E93;
+          client.add(doc);
+          //&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;
+          client.commit();
+          //&#x5173;&#x95ED;&#x8D44;&#x6E90;
+          client.close();
+      } catch (Exception e) {
+          // TODO: handle exception
+          e.printStackTrace();
+      }
+  }
+</code></pre><p>  }</p>
+<p>  ```</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="10.Solrj概述以及使用.html" class="navigation navigation-prev " aria-label="Previous page: 10. Solrj概述以及使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="10.2通过Solrj实现索引删除.html" class="navigation navigation-next " aria-label="Next page: 10.2 通过Solrj实现索引删除">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"10.1 通过Solrj实现索引添加与更新","level":"1.11.1","depth":2,"next":{"title":"10.2 通过Solrj实现索引删除","level":"1.11.2","depth":2,"path":"10.2通过Solrj实现索引删除.md","ref":"10.2通过Solrj实现索引删除.md","articles":[]},"previous":{"title":"10. Solrj概述以及使用","level":"1.11","depth":1,"path":"10.Solrj概述以及使用.md","ref":"10.Solrj概述以及使用.md","articles":[{"title":"10.1 通过Solrj实现索引添加与更新","level":"1.11.1","depth":2,"path":"10.1通过Solrj实现索引添加与更新.md","ref":"10.1通过Solrj实现索引添加与更新.md","articles":[]},{"title":"10.2 通过Solrj实现索引删除","level":"1.11.2","depth":2,"path":"10.2通过Solrj实现索引删除.md","ref":"10.2通过Solrj实现索引删除.md","articles":[]},{"title":"10.3 通过Solrj实现简单查询","level":"1.11.3","depth":2,"path":"10.3通过Solrj实现简单查询.md","ref":"10.3通过Solrj实现简单查询.md","articles":[]},{"title":"10.4 通过Solrj实现复杂查询","level":"1.11.4","depth":2,"path":"10.4通过Solrj实现复杂查询.md","ref":"10.4通过Solrj实现复杂查询.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"10.1通过Solrj实现索引添加与更新.md","mtime":"2019-06-21T07:49:08.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-22T03:25:18.320Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
